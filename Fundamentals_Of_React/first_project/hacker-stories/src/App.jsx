@@ -1,16 +1,5 @@
 import * as React from 'react';
 
-const title = 'React';
-
-const welcome = {
-  title: 'React',
-  greeting: 'Hey',
-};
-
-const getTitle = (title) => {
-  return title;
-};
-
 const list = [
   {
     title: 'React',
@@ -30,14 +19,9 @@ const list = [
   },
 ];
 
-function App() {
+function List() {
   return (
-    <div>
-      <h1>My Hackers Stories</h1>
-
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
-      <hr />
+    <>
       <ul>
         {list.map(function (item) {
           return (
@@ -45,13 +29,35 @@ function App() {
               <span>
                 <a href={item.url}>{item.title}</a>
               </span>
-              <span> {item.author} </span>
-              <span> {item.num_comments} </span>
-              <span> {item.points} </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
             </li>
           );
         })}
       </ul>
+    </>
+  );
+}
+
+function Search() {
+  return (
+    <>
+      <dir>
+        <label htmlFor="search">Search: </label>
+        <input type="text" />
+      </dir>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <h1>My Hackers Stories</h1>
+      <Search />
+      <hr />
+      <List />
     </div>
   );
 }
