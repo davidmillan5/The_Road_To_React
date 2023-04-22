@@ -19,7 +19,7 @@ const list = [
   },
 ];
 
-function List() {
+const List = () => {
   return (
     <>
       <ul>
@@ -38,18 +38,25 @@ function List() {
       </ul>
     </>
   );
-}
+};
 
-function Search() {
+const Search = () => {
+  const handleChange = (event) => {
+    //synthetic event
+    console.log(event);
+    //value of target (here: input HTML element)
+    console.log(event.target.value);
+  };
+
   return (
     <>
-      <dir>
+      <div>
         <label htmlFor="search">Search: </label>
-        <input type="text" />
-      </dir>
+        <input type="text" onChange={handleChange} />
+      </div>
     </>
   );
-}
+};
 
 function App() {
   return (
